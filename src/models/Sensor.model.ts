@@ -13,7 +13,7 @@ export interface SensorEntity {
 
 export interface ISensor extends Document, SensorEntity {}
 
-const sensorSchema = new Schema({
+export const sensorSchema = new Schema({
   name: { type: String, required: true, unique: true },
   location: {
     type: {

@@ -1,9 +1,9 @@
 import mongoose, { Schema } from 'mongoose';
-import AutoIncrement from 'mongoose-sequence';
+import { sensorSchema } from './Sensor.model';
 
 const sensorEventSchema = new Schema(
   {
-    sensorId: { type: Number, required: true, unique: true },
+    sensorId: sensorSchema,
     value: {
       type: Number,
     },
@@ -12,8 +12,6 @@ const sensorEventSchema = new Schema(
     timestamps: { createdAt: 'createat' },
   },
 );
-
-sensorEventSchema.plugin(AutoIncrement, { inc_field: 'sensorId' });
 
 const SensorEvent = mongoose.model('Sensor', sensorEventSchema);
 
