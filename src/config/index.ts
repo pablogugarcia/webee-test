@@ -1,3 +1,8 @@
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost/webee', { useNewUrlParser: true });
+export function connectDB() {
+  return mongoose.connect('mongodb://localhost/webee', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+}
