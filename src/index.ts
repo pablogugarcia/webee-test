@@ -5,7 +5,9 @@ import app from '@server';
 // import Sensor from '@entities/Sensor.schema';
 import { connectDB } from './config';
 import logger from './utils/Logger';
-import SensorRouter from './routes/sensor/SensorRoute';
+import SensorRouter from './routes/SensorRoute';
+import SensorEventRouter from './routes/SensorEventRoute';
+import AuthRouter from './routes/Auth';
 
 // Connect database
 connectDB()
@@ -33,3 +35,5 @@ app.listen(port, () => {
 // });
 
 app.use('/sensors', SensorRouter);
+app.use('/sensor-events', SensorEventRouter);
+app.use('/auth', AuthRouter);
