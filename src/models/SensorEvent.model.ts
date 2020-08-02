@@ -1,9 +1,20 @@
-import mongoose, { Schema } from 'mongoose';
-import { sensorSchema } from './Sensor.model';
+import mongoose, { Schema, Document } from 'mongoose';
+
+export interface SensorEventEntity {
+  sensorId: string;
+  value: number
+  createat?: Date
+}
+
+export interface ISensorEvent extends Document, SensorEventEntity {}
 
 const sensorEventSchema = new Schema(
   {
-    sensorId: sensorSchema,
+    sensorId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Sensor',
+      required: true,
+    },
     value: {
       type: Number,
     },
@@ -13,6 +24,6 @@ const sensorEventSchema = new Schema(
   },
 );
 
-const SensorEvent = mongoose.model('Sensor', sensorEventSchema);
+const SensorEvent = mongoose.model<ISensorEvent>('SensorEvent', sensorEventSchema);
 
 export default SensorEvent;
