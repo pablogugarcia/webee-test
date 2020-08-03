@@ -29,3 +29,8 @@ export const makeDemoAuth = (user: UserCredentials): Promise<string | Error> =>
       },
     );
   });
+
+
+  // export const JWTverify = (token: string) => {
+  //   jwt.verify(token, )
+  // }

@@ -1,0 +1,12 @@
+# Environment
+NODE_ENV=development
+
+# Server
+PORT=3000
+HOST=localhost
+
+# Authentication
+JWT_SECRET=ultra-secret
+
+# expires in 3 days
+COOKIE_EXP=259200000
