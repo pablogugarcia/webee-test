@@ -3,7 +3,7 @@ import SensorDao from '@daos/Sensor';
 import { handleResErrors } from 'src/utils/Responses';
 
 export default function removeSensor(req: Request, res: Response): void {
-  const { id } = req.body;
+  const { id } = req.params;
 
   SensorDao.removeOne(id)
     .then(() => res.sendStatus(200))

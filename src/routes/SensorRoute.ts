@@ -7,7 +7,7 @@ import updateSensor from '@controllers/sensors/update';
 const SensorRouter = Router();
 
 SensorRouter.get('/', getSensors)
-  .delete('/', removeSensor)
+  .delete('/:id', removeSensor)
   .post('/', CreateSensor)
   .put('/', updateSensor);
 

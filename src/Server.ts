@@ -3,6 +3,7 @@ import helmet from 'helmet';
 
 import express from 'express';
 import 'express-async-errors';
+import cors from 'cors';
 
 const app = express();
 
@@ -18,5 +19,6 @@ if (process.env.NODE_ENV === 'development') {
 if (process.env.NODE_ENV === 'production') {
   app.use(helmet());
 }
+app.use(cors());
 
 export default app;
