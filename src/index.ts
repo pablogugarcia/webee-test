@@ -8,6 +8,7 @@ import logger from './utils/Logger';
 import SensorRouter from './routes/SensorRoute';
 import SensorEventRouter from './routes/SensorEventRoute';
 import AuthRouter from './routes/Auth';
+import { tokenVerify } from './middlewares/auth';
 
 // Connect database
 connectDB()
@@ -33,7 +34,7 @@ app.listen(port, () => {
 //   minval: 0,
 //   maxval: 10,
 // });
-
+app.use('/auth', AuthRouter);
+app.use(tokenVerify);
 app.use('/sensors', SensorRouter);
 app.use('/sensor-events', SensorEventRouter);
-app.use('/auth', AuthRouter);
