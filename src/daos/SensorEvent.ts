@@ -18,6 +18,10 @@ class SensorEventDao
   listAndPopulate() {
     return this.Model.find().populate('sensorId').exec();
   }
+
+  getAllById(id: string) {
+    return this.Model.find({ sensorId: id }).exec();
+  }
 }
 
 export default new SensorEventDao(SensorEvent);
